@@ -1,0 +1,27 @@
+{
+    "name": "ninja/cart-upselling",
+    "description": "Upselling in the cart (static)",
+    "type": "shopware-platform-plugin",
+    "license": "MIT",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Ninja Army (Joschi Mehta)"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "NINJA\\CartUpselling\\": "src/"
+        }
+    },
+    "require": {
+        "shopware/core": ">=6.4.0"
+    },
+    "extra": {
+        "shopware-plugin-class": "NINJA\\CartUpselling\\NINJACartUpselling",
+        "label": {
+            "de-DE": "Upselling im Warenkorb (statisch)",
+            "en-GB": "Upselling in cart (static)"
+        }
+    }
+}

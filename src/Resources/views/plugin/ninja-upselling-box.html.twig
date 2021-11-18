@@ -1,0 +1,21 @@
+{% set headline = config('NINJACartUpselling.config.headline') %}
+{{dump()}}
+<div class="checkout-static-upselling row {% if position == 'bottom' %}pt-4{% endif %}">
+	{% if 'NINJACartUpselling.title'|trans != '' %}
+		<div class="col-12 cms-element-product-slider">
+			<div class="cms-element-title">
+				<p class="cms-element-title-paragraph">{{ headline }}</p>
+			</div>
+		</div>
+	{% endif %}
+	{% for product in page.NINJACartUpsellingProducts %}
+		<div class="col-12 {{ productColumns }} pb-4">
+			{% block element_product_listing_box %}
+				{% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {
+                    'layout': 'minimal',
+                    'displayMode': 'contain'
+                } %}
+			{% endblock %}
+		</div>
+	{% endfor %}
+</div>

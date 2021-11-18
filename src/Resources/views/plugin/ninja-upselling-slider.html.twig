@@ -1,0 +1,41 @@
+<div class="card checkout-static-upselling pt-4">
+	{% set config = {
+        'title': {
+            'value': pluginConfig.headline
+        },
+        'border': {
+            'value': pluginConfig.showBorder
+        },
+        'rotate': {
+            'value': pluginConfig.rotate
+        },
+        'products': {
+            'value': page.NINJACartUpsellingProducts
+        },
+        'boxLayout': {
+            'value': pluginConfig.boxLayout
+        },
+        'elMinWidth': {
+            'value': pluginConfig.elMinWidth ~ 'px'
+        },
+        'navigation': {
+            'value': pluginConfig.navigation
+        },
+        'displayMode': {
+            'value': 'contain'
+        },
+        'verticalAlign': {
+            'value': pluginConfig.verticalAlign
+        }
+    } %}
+
+	{% sw_include "@Storefront/storefront/element/cms-element-product-slider.html.twig" with {
+        sliderConfig: config,
+        element: {
+            'data': {
+                'products': page.NINJACartUpsellingProducts
+            },
+            type: 'product-slider'
+        }
+    } only %}
+</div>

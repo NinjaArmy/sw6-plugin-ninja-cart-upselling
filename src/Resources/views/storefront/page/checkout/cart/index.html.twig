@@ -1,0 +1,22 @@
+{% sw_extends '@Storefront/storefront/page/checkout/cart/index.html.twig' %}
+
+{% block page_checkout_aside_summary %}
+	{% set pluginConfig = config('NINJACartUpselling.config') %}
+	{% if (pluginConfig.active) and (page.NINJACartUpsellingProducts) and (pluginConfig.elementConfig == 'productSlider') and (pluginConfig.position == 'aside') %}
+		{% sw_include '@NINJACartUpselling/plugin/ninja-upselling-slider.html.twig' %}
+	{% elseif (pluginConfig.active) and (page.NINJACartUpsellingProducts) and (pluginConfig.elementConfig == 'productBox') and (pluginConfig.position == 'aside') %}
+		{% sw_include '@NINJACartUpselling/plugin/ninja-upselling-box.html.twig' with { position: pluginConfig.position, productColumns: pluginConfig.productColumns } %}
+	{% endif %}
+	{{ parent() }}
+{% endblock %}
+
+{% block page_checkout_main_content %}
+	{{ parent() }}
+
+	{% set pluginConfig = config('NINJACartUpselling.config') %}
+	{% if (pluginConfig.active) and (page.NINJACartUpsellingProducts) and (pluginConfig.elementConfig == 'productSlider') and (pluginConfig.position == 'bottom') %}
+		{% sw_include '@NINJACartUpselling/plugin/ninja-upselling-slider.html.twig' %}
+	{% elseif (pluginConfig.active) and (page.NINJACartUpsellingProducts) and (pluginConfig.elementConfig == 'productBox') and (pluginConfig.position == 'bottom') %}
+		{% sw_include '@NINJACartUpselling/plugin/ninja-upselling-box.html.twig' with { position: pluginConfig.position, productColumns: pluginConfig.productColumns } %}
+	{% endif %}
+{% endblock %}

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/master/src/Core/System/SystemConfig/Schema/config.xsd">
+    <card>
+        <title>Upselling in cart (static)</title>
+        <title lang="de-DE">Upselling im Warenkorb (statisch)</title>
+
+        <input-field type="bool">
+            <name>active</name>
+            <require>true</require>
+            <label>Active</label>
+            <label lang="de-DE">Aktiv</label>
+            <defaulValue>false</defaulValue>
+        </input-field>
+
+        <component name="sw-entity-multi-id-select">
+            <name>products</name>
+            <entity>product</entity>
+            <label>Choose active product(s) for static upselling</label>
+            <label lang="de-DE">Wählen Sie die Produkte, die Sie im Warenkorb anzeigen wollen hier</label>
+        </component>
+    </card>
+
+    <card>
+        <title>Display settings</title>
+        <title lang="de-DE">Anzeige Einstellungen</title>
+
+        <input-field type="single-select">
+            <name>elementConfig</name>
+            <require>true</require>
+            <label>Element</label>
+            <defaultValue>productSlider</defaultValue>
+            <options>
+                <option>
+                    <id>productSlider</id>
+                    <name>Product slider</name>
+                    <name lang="de-DE">Produkt Slider</name>
+                </option>
+                <option>
+                    <id>productBox</id>
+                    <name>Product box</name>
+                    <name lang="de-DE">Produkt Box</name>
+                </option>
+            </options>
+        </input-field>
+
+        <input-field type="single-select">
+            <name>position</name>
+            <require>true</require>
+            <label>Position</label>
+            <defaultValue>bottom</defaultValue>
+            <options>
+                <option>
+                    <id>aside</id>
+                    <name>Sidebar</name>
+                    <name lang="de-DE">An der Seitenleiste</name>
+                </option>
+                <option>
+                    <id>bottom</id>
+                    <name>Bottom</name>
+                    <name lang="de-DE">Unter dem Warenkorb-Inhalt</name>
+                </option>
+            </options>
+        </input-field>
+
+        <input-field type="text">
+            <name>headline</name>
+            <label>Headline</label>
+            <label lang="de-DE">Überschrift</label>
+            <placeholder>Customers also bought:</placeholder>
+            <placeholder lang="de-DE">Kunden kauften auch:</placeholder>
+            <helpText>If you don't want a title leave this field empty</helpText>
+            <helpText lang="de-DE">Falls Sie keine Überschrift wünschen, lassen Sie dieses Feld leer</helpText>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Product slider settings</title>
+        <title lang="de-DE">Produkt Slider Einstellungen</title>
+
+        <input-field type="bool">
+            <name>showBorder</name>
+            <require>true</require>
+            <label>Show border</label>
+            <label lang="de-DE">Rahmen anzeigen?</label>
+            <defaultValue>false</defaultValue>
+        </input-field>
+
+        <input-field type="bool">
+            <name>rotate</name>
+            <require>true</require>
+            <label>Auto rotate</label>
+            <label lang="de-DE">Automatischer Wechsel?</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="single-select">
+            <name>boxLayout</name>
+            <require>true</require>
+            <label>Layout type</label>
+            <label lang="de-DE">Layout Typ</label>
+            <defaultValue>minimal</defaultValue>
+            <options>
+                <option>
+                    <id>standard</id>
+                    <name>Standard</name>
+                </option>
+                <option>
+                    <id>image</id>
+                    <name>Big image</name>
+                    <name lang="de-DE">Großes Bild</name>
+                </option>
+                <option>
+                    <id>minimal</id>
+                    <name>Minimal content</name>
+                    <name lang="de-DE">Minimaler Inhalt</name>
+                </option>
+            </options>
+        </input-field>
+
+        <input-field type="int">
+            <name>elMinWidth</name>
+            <label>Minimal width</label>
+            <label lang="de-DE">Minimale Breite</label>
+            <helpText>Defines the width of the product box. Enter a value for example 200 </helpText>
+            <helpText lang="de-DE">Definiert die Breite der Produktboxen. Geben Sie einen Wert ein z.B. 200</helpText>
+            <defaultValue>150</defaultValue>
+        </input-field>
+
+        <input-field type="bool">
+            <name>navigation</name>
+            <require>true</require>
+            <label>Show navigation arrows</label>
+            <label lang="de-DE">Zeigt Navigationpfeile an</label>
+            <defaultValue>false</defaultValue>
+        </input-field>
+
+        <input-field type="single-select">
+            <name>verticalAlign</name>
+            <require>true</require>
+            <label>Vertical Align</label>
+            <label lang="de-DE">Vertikale Ausrichtung</label>
+            <defaultValue>center</defaultValue>
+            <options>
+                <option>
+                    <id>top</id>
+                    <name>Top</name>
+                    <name lang="de-DE">Oben</name>
+                </option>
+                <option>
+                    <id>center</id>
+                    <name>Center</name>
+                    <name lang="de-DE">Mittig</name>
+                </option>
+                <option>
+                    <id>bottom</id>
+                    <name>Bottom</name>
+                    <name lang="de-DE">Unten</name>
+                </option>
+            </options>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Product box settings</title>
+        <title lang="de-DE">Produktbox Einstellungen</title>
+
+        <input-field type="single-select">
+            <name>productColumns</name>
+            <require>true</require>
+            <label>How many product boxes next to each other?</label>
+            <label lang="de-DE">Wie viele Produktboxen wollen Sie nebeneinander anzeigen?</label>
+            <helpText>This will set Bootstrap classes which are responsible for the columns on the page. How many products you will see in a row also depends on which width you set for a product box. </helpText>
+            <helpText lang="de-DE">Hier werden Bootstrap-Klassen gesetzt, die für die Spalten zuständig sind. Wie viele Produkte am Ende in einer Reihe angezeigt werden hängt ebenfalls von der ausgewählten Breite ab.</helpText>
+            <defaultValue>4</defaultValue>
+            <options>
+                <option>
+                    <id>col-md-12</id>
+                    <name>1</name>
+                </option>
+                <option>
+                    <id>col-md-6</id>
+                    <name>2</name>
+                </option>
+                <option>
+                    <id>col-md-4</id>
+                    <name>3</name>
+                </option>
+                <option>
+                    <id>col-md-3</id>
+                    <name>4</name>
+                </option>
+            </options>
+        </input-field>
+    </card>
+</config>
